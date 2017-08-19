@@ -1,0 +1,51 @@
+group 'com.twospoons'
+version '1.0-SNAPSHOT'
+
+description 'A simple project to show how to use Spock to unit test camel routes.'
+
+apply plugin: 'groovy'
+
+repositories {
+    jcenter()
+}
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.6.RELEASE'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.6.RELEASE")
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+def camelVersion = '2.19.2'
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.12'
+    compile ('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+    compile 'org.springframework.boot:spring-boot-starter-jetty'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+
+    compile "org.apache.camel:camel-spring-boot:$camelVersion"
+    compile "org.apache.camel:camel-groovy:$camelVersion"
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+    testCompile 'cglib:cglib-nodep:3.2.4'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.1'
+    distributionType = 'ALL'
+}

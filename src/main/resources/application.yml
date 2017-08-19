@@ -1,0 +1,6 @@
+
+logging:
+  level:
+    ROOT: INFO
+    com.twospoons.camel.spock: DEBUG
+
