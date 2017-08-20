@@ -22,7 +22,7 @@ To that end, I've chosen my favorite testing framework, [Spock](http://spockfram
 
 #### Running locally
 ```bash
-./gradelw bootRun
+./gradlew bootRun
 ```
 
 #### Running the tests
