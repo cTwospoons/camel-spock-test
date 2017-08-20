@@ -17,3 +17,27 @@ To that end, I've chosen my favorite testing framework, [Spock](http://spockfram
 * Apache Camel
 * Spring Boot
 * Spock
+
+### Running the App
+
+#### Running locally
+```bash
+./gradelw bootRun
+```
+
+#### Running the tests
+```bash
+./gradlew test
+```
+
+#### Sending messages along the Camel routes  
+The app starts a basic Spring context with Spring Boot putting a request listener on the default port. 
+
+To send a message along the Camel routes when the app is running, issue a simple GET request to 
+
+```bash
+curl http://localhost:8080/simple
+```
+
+
+
